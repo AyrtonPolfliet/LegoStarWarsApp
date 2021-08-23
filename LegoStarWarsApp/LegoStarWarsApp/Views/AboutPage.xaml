@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LegoStarWarsApp.Views.AboutPage"
+             xmlns:vm="clr-namespace:LegoStarWarsApp.ViewModels"
+             Title="{Binding Title}">
+    
+    <ContentPage.BindingContext>
+        <vm:AboutViewModel />
+    </ContentPage.BindingContext>
+   
+   
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Accent">#FFFFFF</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                <ContentView  VerticalOptions="FillAndExpand">
+                    <Image Source="StarWarsLogo.gif" VerticalOptions="Center" HeightRequest="128"/>
+                </ContentView>
+            </StackLayout>
+        </StackLayout>
+        <ScrollView Grid.Row="1">
+            <StackLayout Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
+                <Label Text="Welkom op de Lego Star Wars app" FontSize="Title"/>
+                <Label Text="De eerste LEGO Star Wars producten kwamen in 1999 op de markt, waaronder set 7140, de eerste LEGO X-Wing. Star Wars was het eerste intellectuele eigendom waar door LEGO een licentie voor werd afgesloten. De eerste sets waren afgeleid van de oorspronkelijke trilogie en kwamen tegelijk uit met het verschijnen van The Phantom Menace. Sets gebaseerd op de prequel-trilogie volgden later en sloten steeds meer aan bij het verschijnen van nieuwe films en televisie-series." FontSize="16" Padding="0,0,0,0"/>
+                <Label FontSize="16" Padding="0,24,0,0">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="Via de button hieronder kan je direct naar de officiële Lego website gaan om sets te bekijken en te bestellen!"/>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Button Margin="0,10,0,0" Text="Officiële Lego Star Wars website"
+                        Command="{Binding OpenWebCommand}"
+                        BackgroundColor="{StaticResource Primary}"
+                        TextColor="White" />
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+
+</ContentPage>
